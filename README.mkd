@@ -1,0 +1,14 @@
+## Again?
+
+*Schon wieder Wäsche waschen? Hab ich das nicht vor Tagen gemacht?*
+
+Wiederkehrende Aufgaben nerven. Besonders wenn es Kleinigkeiten wie 'Wäsche waschen', 'Einkaufen'
+und 'Haare schneiden' sind. Nie weiß man, wann man sie das letzte Mal erledigt hat und erst recht
+nicht, wann sie wieder zu erledigen sind.
+
+Wie immer, wenn es um nervige Aufgaben geht, wird das Gehirn auf dem Computer ausgelagert. Warum
+nicht ein Programm schreiben, dem man sagt, dass man jetzt eine Aufgabe erledigt hat und das darüber
+wacht, wann sie das nächste Mal zu erledigen ist. Es muss schließlich nur die Zeitpunkte speichern
+und den Mittelwert der Differenzen bilden.
+
+Wie das Programm an wiederkehrende Aufgaben erinnert, bleibt noch zu Überlegen.
