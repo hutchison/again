@@ -37,9 +37,7 @@ def main():
     againWriter.writerow(sys.argv)
 
 if __name__ == '__main__':
-    try:
-        f = open(dotagain,'rwb')
-        f.close()
-    except IOError as (errno, strerror):
-        print "I/O error({0}): {1}".format(errno, strerror)
+    if not os.path.exists(dotagain):
+        print "\'~/.again\' existiert nicht. Ich werd\'s anlegen."
+        open(dotagain,'w').close()
     dispatch()
