@@ -6,6 +6,31 @@ import os
 import datetime
 import csv
 
-homedir = os.path.expanduser('~')
-againWriter = csv.writer(open(homedir + '/.again','wb'))
-againWriter.writerow(sys.argv)
+dotagain = os.path.expanduser('~/.again')
+
+def list_agains():
+    """Listet alle Einträge."""
+    againReader = csv.reader(open(dotagain,'rb'))
+    print "Bisherige Einträge:"
+    for row in againReader:
+        print row[0] + ":", ",".join(row[1:])
+
+def add_again(agains):
+    """Fügt einen Eintrag hinzu."""
+    print "Debug (add_again):", desc
+
+def dispatch():
+    """Entscheidet was zu tun ist."""
+    if len(sys.argv) == 1:
+        list_agains()
+    else:
+        d = " ".join(sys.argv[1:]) # alle übergebenen Strings werden zu einem zusammengefasst
+        add_again(d)
+
+def main():
+    homedir = os.path.expanduser('~')
+    againWriter = csv.writer(open(dotagain,'wb'))
+    againWriter.writerow(sys.argv)
+
+if __name__ == '__main__':
+    dispatch()
