@@ -17,7 +17,7 @@ def list_agains():
 
 def add_again(agains):
     """Fügt einen Eintrag hinzu."""
-    print "Debug (add_again):", desc
+    print "Debug (add_again):", agains
 
 def dispatch():
     """Entscheidet was zu tun ist."""
