@@ -10,22 +10,26 @@ dotagain = os.path.expanduser('~/.again')
 
 def list_agains():
     """Listet alle Einträge."""
-    againReader = csv.reader(open(dotagain,'rb'))
+    agains = csv.reader(open(dotagain,'rb'))
     print "Bisherige Einträge:"
-    for row in againReader:
+    for row in agains:
         print row[0] + ":", ",".join(row[1:])
 
-def add_again(agains):
+def add_again(new_again, time_new):
     """Fügt einen Eintrag hinzu."""
-    print "Debug (add_again):", agains
+    old_agains = csv.reader(open(dotagain,'rb'))
+    print "Debug (add_again):", old_agains
+    print new_again, time_new
 
 def dispatch():
     """Entscheidet was zu tun ist."""
     if len(sys.argv) == 1:
         list_agains()
     else:
-        d = " ".join(sys.argv[1:]) # alle übergebenen Strings werden zu einem zusammengefasst
-        add_again(d)
+        new_a = " ".join(sys.argv[1:])  # alle übergebenen Strings werden zu einem zusammengefasst
+                                        # so wird aus ['Wäsche', 'waschen'] auch 'Wäsche waschen'
+        t = datetime.datetime.now()
+        add_again(new_a, t)
 
 def main():
     homedir = os.path.expanduser('~')
