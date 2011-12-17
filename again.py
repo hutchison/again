@@ -20,6 +20,7 @@ def add_again(new_again, time_new):
     old_agains = csv.reader(open(dotagain,'rb'))
     print "Debug (add_again):", old_agains
     print new_again, time_new
+    # TODO: einen Eintrag auch wirklich hinzufügen (sollte doch eigentlich nicht so schwer sein)
 
 def dispatch():
     """Entscheidet was zu tun ist."""
@@ -30,6 +31,7 @@ def dispatch():
                                         # so wird aus ['Wäsche', 'waschen'] auch 'Wäsche waschen'
         t = datetime.datetime.now()
         add_again(new_a, t)
+        # TODO: Meldung machen!
 
 def main():
     homedir = os.path.expanduser('~')
