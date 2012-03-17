@@ -48,6 +48,7 @@ def dispatch():
                                         # so wird aus ['Wäsche', 'waschen'] auch 'Wäsche waschen'
         t = datetime.datetime.now()
         add_again(new_a, t)
+        # TODO: Meldung machen!
 
 def main():
     pass
