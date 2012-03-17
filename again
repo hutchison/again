@@ -15,11 +15,29 @@ def list_agains():
     for row in agains:
         print row[0] + ":", ",".join(row[1:])
 
+def lol(needle,haystack): # list of lists :)
+    """Wählt aus einer Liste von Listen diejenige aus, deren Kopf der 'needle' entspricht"""
+    for N in haystack:
+        print N
+        if needle == N[0]:
+            return N
+    return None
+
 def add_again(new_again, time_new):
     """Fügt einen Eintrag hinzu."""
-    old_agains = csv.reader(open(dotagain,'rb'))
-    print "Debug (add_again):", old_agains
-    print new_again, time_new
+    old_agains_reader = csv.reader(open(dotagain,'rb')) # erstmal holen wir uns die alten Einträge
+    # bastelt eine Liste aus allen agains:
+    old_agains = []
+    for row in old_agains_reader:
+        old_agains.append(row[0])
+    # falls wir new_again schon haben, kommt die Zeit hinten ran:
+    H = lol(new_again, old_agains_reader)
+    if H:
+        H.append(time_new)
+    # sonst erstellen wir eine neue Liste
+    else:
+        H = [new_again, time_new]
+    print H
 
 def dispatch():
     """Entscheidet was zu tun ist."""
@@ -32,9 +50,7 @@ def dispatch():
         add_again(new_a, t)
 
 def main():
-    homedir = os.path.expanduser('~')
-    againWriter = csv.writer(open(dotagain,'wb'))
-    againWriter.writerow(sys.argv)
+    pass
 
 if __name__ == '__main__':
     if not os.path.exists(dotagain):
